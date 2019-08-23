@@ -12,6 +12,7 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
     @IBOutlet weak var tblView: UITableView!
     var dataDictionary = Model().getDataDictionary()
+    var navController: UINavigationController!
 //    let filterVC = UINavigationController(rootViewController: FilterViewController())
     
     
@@ -128,7 +129,7 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         guard let collectionVC = self.storyboard?.instantiateViewController(withIdentifier: "filterCollection") as? FilterCollection else {
             fatalError("Could not cast storyboard VC to FilterCollection type")
         }
-        let navController = UINavigationController(rootViewController: collectionVC)
+        navController = UINavigationController(rootViewController: collectionVC)
         self.present(navController, animated: true)
     }
 

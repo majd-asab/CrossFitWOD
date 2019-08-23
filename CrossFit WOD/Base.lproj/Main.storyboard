@@ -51,6 +51,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfL-aF-hB2" customClass="FilterButton" customModule="CrossFit_WOD">
                                             <rect key="frame" x="43" y="15" width="118" height="30"/>
                                             <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="onButtonTouchup:" destination="ePC-Qm-w6a" eventType="touchUpInside" id="Ydx-IV-RI8"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>

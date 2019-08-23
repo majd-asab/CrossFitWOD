@@ -65,6 +65,15 @@ class FilterCollection: UICollectionViewController {
         return cell;
     }
     
+    
+
+    @IBAction func onButtonTouchup(_ sender: FilterButton) {
+        if let buttonTitle = sender.currentTitle {
+            print(buttonTitle)
+        }
+    }
+    
+    
     @objc func dimissModal(){
         self.dismiss(animated: true)
     }
