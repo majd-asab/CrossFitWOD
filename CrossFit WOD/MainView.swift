@@ -29,6 +29,12 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(presentFilterCollection))
         
+        // placed this method logic to here to save the state of the VC to the reference right away
+        guard let collectionVC = self.storyboard?.instantiateViewController(withIdentifier: "filterCollection") as? FilterCollection else {
+            fatalError("Could not cast storyboard VC to FilterCollection type")
+        }
+        navController = UINavigationController(rootViewController: collectionVC)
+        
         
         
     }
@@ -126,10 +132,7 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //    }
     
     @objc func presentFilterCollection() {
-        guard let collectionVC = self.storyboard?.instantiateViewController(withIdentifier: "filterCollection") as? FilterCollection else {
-            fatalError("Could not cast storyboard VC to FilterCollection type")
-        }
-        navController = UINavigationController(rootViewController: collectionVC)
+        
         self.present(navController, animated: true)
     }
 

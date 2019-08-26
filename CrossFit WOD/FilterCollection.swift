@@ -12,6 +12,7 @@ class FilterCollection: UICollectionViewController {
     
     let movements = Core.allCases
     let WODs = ["Girls", "Heros"]
+    let model = Model()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +70,22 @@ class FilterCollection: UICollectionViewController {
 
     @IBAction func onButtonTouchup(_ sender: FilterButton) {
         if let buttonTitle = sender.currentTitle {
-            print(buttonTitle)
+            let borderColor = sender.layer.borderColor
+            switch (buttonTitle, borderColor) {
+                case ("Girls", UIColor.black.cgColor):
+                    model.setDataDictionary(with: buttonTitle)
+                case ("Heros", UIColor.black.cgColor):
+                    model.setDataDictionary(with: buttonTitle)
+                default:
+                    model.setDataDictionary(with: "reset")
+            }
         }
+        self.filterButtonAppearance(sender: sender)
+    }
+    
+    // Func to modify button appearance when clicked on.
+    func filterButtonAppearance(sender: FilterButton){
+        sender.layer.borderColor = sender.layer.borderColor == UIColor.black.cgColor ? UIColor.blue.cgColor : UIColor.black.cgColor
     }
     
     
