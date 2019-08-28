@@ -14,6 +14,7 @@ class FilterCollection: UICollectionViewController {
     let WODs = ["Girls", "Heros"]
     let model = Model()
     var setOfAggregatedWods: Set<String> = []
+    var setOfMovementButtons: Set<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,8 +99,16 @@ class FilterCollection: UICollectionViewController {
                 case ("Heros", UIColor.black.cgColor):
                     model.setDataDictionary(with: buttonTitle, arrayOfWods: nil)
                 case (buttonTitle, UIColor.black.cgColor):
+                    setOfMovementButtons.insert(buttonTitle)
                     let wods = findWodsWith(buttonTitle: buttonTitle)
                     setOfAggregatedWods = setOfAggregatedWods.union(Set(wods))
+                    model.setDataDictionary(with: nil, arrayOfWods: Array(setOfAggregatedWods))
+                case (buttonTitle, UIColor.blue.cgColor):
+                    setOfAggregatedWods.removeAll()
+                    setOfMovementButtons.remove(buttonTitle)
+                    for moveTitle in Array(setOfMovementButtons) {
+                       setOfAggregatedWods = setOfAggregatedWods.union(Set(findWodsWith(buttonTitle: moveTitle)))
+                    }
                     model.setDataDictionary(with: nil, arrayOfWods: Array(setOfAggregatedWods))
                 default:
                     model.setDataDictionary(with: "reset", arrayOfWods: nil)
