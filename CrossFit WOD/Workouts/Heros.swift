@@ -27,6 +27,21 @@ struct Heros {
     static let WadeContents: Set<Core> = [Core.run, Core.strictPullUp, Core.strictHandstandPushUp, Core.dip]
     
     
+    static let herosContents = [
+        "Bert" : BertContents,
+        "Erin" : ErinContetnts,
+        "Havana" : HavanaContents,
+        "Horton" : HortonContents,
+        "JBo" : JBoContents,
+        "Manion" : ManionContents ,
+        "Lumberjack20" : Lumberjack20Contents ,
+        "Schmalls" : SchmallsContents ,
+        "Tama" : TamaContents,
+        "Wade" : WadeContents
+    ]
+    
+    
+    
     // MARK: set of sets
     static let setOfHeroSets: Set<Set<Core>> = [BertContents,ErinContetnts,HansenContents,HavanaContents,HortonContents,JBoContents,ManionContents,Lumberjack20Contents,SchmallsContents,TamaContents,WadeContents]
     

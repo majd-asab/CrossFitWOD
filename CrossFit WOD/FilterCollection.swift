@@ -68,16 +68,39 @@ class FilterCollection: UICollectionViewController {
     
     
 
+    // function to return an array of WODs that contain the movement
+    fileprivate func findWodsWith(buttonTitle coreMovement: String) -> [String] {
+        var arrayOfWods: [String] = []
+        if let coreMove = Core(rawValue: coreMovement) {
+            for (heroName,content) in Heros.herosContents {
+                if content.contains(coreMove) {
+                    arrayOfWods.append(heroName)
+                }
+            }
+            
+            for (girlName,content) in Girls.girlsContents {
+                if content.contains(coreMove) {
+                    arrayOfWods.append(girlName)
+                }
+            }
+        }
+        return arrayOfWods
+    }
+    
     @IBAction func onButtonTouchup(_ sender: FilterButton) {
         if let buttonTitle = sender.currentTitle {
             let borderColor = sender.layer.borderColor
+            
             switch (buttonTitle, borderColor) {
                 case ("Girls", UIColor.black.cgColor):
-                    model.setDataDictionary(with: buttonTitle)
+                    model.setDataDictionary(with: buttonTitle, arrayOfWods: nil)
                 case ("Heros", UIColor.black.cgColor):
-                    model.setDataDictionary(with: buttonTitle)
+                    model.setDataDictionary(with: buttonTitle, arrayOfWods: nil)
+                case (buttonTitle, UIColor.black.cgColor):
+                    let wods = findWodsWith(buttonTitle: buttonTitle)
+                    model.setDataDictionary(with: nil, arrayOfWods: wods)
                 default:
-                    model.setDataDictionary(with: "reset")
+                    model.setDataDictionary(with: "reset", arrayOfWods: nil)
             }
         }
         self.filterButtonAppearance(sender: sender)

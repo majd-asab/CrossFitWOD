@@ -20,6 +20,16 @@ struct Girls {
     static let MaryContents: Set<Core> = [.handStandPushUp, .pistol, .pullUp]
     static let NastyGirlsContents: Set<Core> = [.airSquat, .muscleup, .hangPowerClean]
     
+    static let girlsContents = [
+        "Cindy" : CindyContents ,
+        "Diane": DianeContents,
+        "Grace" : GraceContents,
+        "Isabel": IsabelContents,
+        "Mary" : MaryContents,
+        "NastyGirls" :NastyGirlsContents
+    ]
+
+    
     // MARK: set of sets
     static let setOfGirlSets: Set<Set<Core>> = [CindyContents, DianeContents, GraceContents,IsabelContents,MaryContents, NastyGirlsContents ]
     
