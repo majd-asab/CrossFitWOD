@@ -89,6 +89,7 @@ class FilterCollection: UICollectionViewController {
         return arrayOfWods
     }
     
+    // TODO: only execute setDataDictionary when the user clicks done on the filter page
     @IBAction func onButtonTouchup(_ sender: FilterButton) {
         if let buttonTitle = sender.currentTitle {
             let borderColor = sender.layer.borderColor
@@ -109,7 +110,10 @@ class FilterCollection: UICollectionViewController {
                     for moveTitle in Array(setOfMovementButtons) {
                        setOfAggregatedWods = setOfAggregatedWods.union(Set(findWodsWith(buttonTitle: moveTitle)))
                     }
-                    model.setDataDictionary(with: nil, arrayOfWods: Array(setOfAggregatedWods))
+                    
+                    setOfAggregatedWods.count > 0 ?
+                        model.setDataDictionary(with: nil, arrayOfWods: Array(setOfAggregatedWods)) :
+                        model.setDataDictionary(with: nil, arrayOfWods: nil)
                 default:
                     model.setDataDictionary(with: "reset", arrayOfWods: nil)
             }
