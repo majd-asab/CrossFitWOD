@@ -21,6 +21,7 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Do any additional setup after loading the view.
         self.tblView.delegate = self
         self.tblView.dataSource = self
+
         
         self.navigationItem.title = "WODs"
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -33,6 +34,7 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         guard let collectionVC = self.storyboard?.instantiateViewController(withIdentifier: "filterCollection") as? FilterCollection else {
             fatalError("Could not cast storyboard VC to FilterCollection type")
         }
+        
         navController = UINavigationController(rootViewController: collectionVC)
         
         
@@ -40,11 +42,11 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // refresh view when it appears in case user updated filter
-        
+        // reload data in case user updated filter
         dataDictionary = Model().getDataDictionary()
         self.tblView.reloadData()
     }
+    
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataDictionary.count
@@ -132,9 +134,9 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //    }
     
     @objc func presentFilterCollection() {
-        
+        navController.modalPresentationStyle = .fullScreen
         self.present(navController, animated: true)
     }
-
 }
+
 
