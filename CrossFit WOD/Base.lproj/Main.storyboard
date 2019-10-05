@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CLb-Nc-BQr">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CLb-Nc-BQr">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,7 +47,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfL-aF-hB2" customClass="FilterButton" customModule="CrossFit_WOD">
-                                            <rect key="frame" x="43" y="15" width="118" height="30"/>
+                                            <rect key="frame" x="18" y="15" width="164" height="30"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="onButtonTouchup:" destination="ePC-Qm-w6a" eventType="touchUpInside" id="Ydx-IV-RI8"/>
@@ -58,9 +56,9 @@
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailingMargin" secondItem="kfL-aF-hB2" secondAttribute="trailing" constant="31" id="ALK-zQ-jkB"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="kfL-aF-hB2" secondAttribute="trailing" constant="10" id="ALK-zQ-jkB"/>
                                     <constraint firstItem="kfL-aF-hB2" firstAttribute="centerY" secondItem="sKr-Fw-nTo" secondAttribute="centerY" id="UMF-S7-f5H"/>
-                                    <constraint firstItem="kfL-aF-hB2" firstAttribute="leading" secondItem="sKr-Fw-nTo" secondAttribute="leadingMargin" constant="35" id="iu3-iE-RAZ"/>
+                                    <constraint firstItem="kfL-aF-hB2" firstAttribute="leading" secondItem="sKr-Fw-nTo" secondAttribute="leadingMargin" constant="10" id="iu3-iE-RAZ"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="workoutButton" destination="kfL-aF-hB2" id="UgP-qm-3If"/>
@@ -113,11 +111,11 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HVt-vi-3Ym" id="aJQ-6l-S7b">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L1A-Z1-JBg">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="60.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="61"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -155,15 +153,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwB-XC-d5c">
-                                <rect key="frame" x="20" y="438" width="374" height="182"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwB-XC-d5c">
+                                <rect key="frame" x="117" y="208" width="180" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gwB-XC-d5c" firstAttribute="top" secondItem="IuL-0l-57g" secondAttribute="top" constant="164" id="WFC-V6-vEI"/>
+                            <constraint firstItem="IuL-0l-57g" firstAttribute="trailing" secondItem="gwB-XC-d5c" secondAttribute="trailing" constant="117" id="ZF8-9N-4uZ"/>
+                            <constraint firstItem="gwB-XC-d5c" firstAttribute="leading" secondItem="IuL-0l-57g" secondAttribute="leading" constant="117" id="ujz-iT-jc6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="IuL-0l-57g"/>
                     </view>
                     <connections>
@@ -172,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPR-v4-ukt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2290" y="-179"/>
+            <point key="canvasLocation" x="2289.8550724637685" y="-179.46428571428569"/>
         </scene>
     </scenes>
 </document>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterCollection: UICollectionViewController {
+class FilterCollection: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let movements = Core.allCases
     let WODs = ["Girls", "Heros"]
@@ -22,6 +22,15 @@ class FilterCollection: UICollectionViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dimissModal))
     }
+    
+    // set the size of collection view cells
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.bounds.width / 2.0) - 7.0
+        let height = CGFloat(exactly: 60.0)!
+        
+        return CGSize(width: width, height: height)
+    }
+    
     
     // WOD type or workouts
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
