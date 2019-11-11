@@ -16,7 +16,8 @@
 		A9325184229A4B1000D93B5D /* Girls.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325183229A4B1000D93B5D /* Girls.swift */; };
 		A9325186229A4C1400D93B5D /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325185229A4C1400D93B5D /* Core.swift */; };
 		A9325188229B12EF00D93B5D /* WODDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9325187229B12EF00D93B5D /* WODDetailViewController.swift */; };
-		A932518C22A0DA2100D93B5D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932518B22A0DA2100D93B5D /* FilterViewController.swift */; };
+		A98E49572365254C00394359 /* WOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98E49562365254B00394359 /* WOD.swift */; };
+		A98E4959236525FD00394359 /* WODTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98E4958236525FD00394359 /* WODTypeEnum.swift */; };
 		A9F5ACD222B099C80023CA49 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F5ACD122B099C80023CA49 /* Model.swift */; };
 		A9F5ACD422C07A3B0023CA49 /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F5ACD322C07A3B0023CA49 /* FilterButton.swift */; };
 		A9F5ACD723035C430023CA49 /* FilterCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F5ACD623035C430023CA49 /* FilterCollection.swift */; };
@@ -36,7 +37,8 @@
 		A9325183229A4B1000D93B5D /* Girls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Girls.swift; sourceTree = "<group>"; };
 		A9325185229A4C1400D93B5D /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		A9325187229B12EF00D93B5D /* WODDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WODDetailViewController.swift; sourceTree = "<group>"; };
-		A932518B22A0DA2100D93B5D /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		A98E49562365254B00394359 /* WOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOD.swift; sourceTree = "<group>"; };
+		A98E4958236525FD00394359 /* WODTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WODTypeEnum.swift; sourceTree = "<group>"; };
 		A9F5ACD122B099C80023CA49 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A9F5ACD322C07A3B0023CA49 /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		A9F5ACD623035C430023CA49 /* FilterCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollection.swift; sourceTree = "<group>"; };
@@ -78,7 +80,6 @@
 				A932516C229A0EE200D93B5D /* MainView.swift */,
 				A932516E229A0EE200D93B5D /* Main.storyboard */,
 				A9325187229B12EF00D93B5D /* WODDetailViewController.swift */,
-				A932518B22A0DA2100D93B5D /* FilterViewController.swift */,
 				A9F5ACD322C07A3B0023CA49 /* FilterButton.swift */,
 				A9F5ACD522D14A4E0023CA49 /* Model */,
 				A9325171229A0EE400D93B5D /* Assets.xcassets */,
@@ -106,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				A9F5ACD122B099C80023CA49 /* Model.swift */,
+				A98E49562365254B00394359 /* WOD.swift */,
+				A98E4958236525FD00394359 /* WODTypeEnum.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,13 +184,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A932518C22A0DA2100D93B5D /* FilterViewController.swift in Sources */,
 				A9F5ACDB230E290F0023CA49 /* FilterCollectionSectionHeaderView.swift in Sources */,
+				A98E4959236525FD00394359 /* WODTypeEnum.swift in Sources */,
 				A9F5ACD9230666D00023CA49 /* FilterCollectionCell.swift in Sources */,
 				A9F5ACD422C07A3B0023CA49 /* FilterButton.swift in Sources */,
 				A9325188229B12EF00D93B5D /* WODDetailViewController.swift in Sources */,
 				A9F5ACD723035C430023CA49 /* FilterCollection.swift in Sources */,
 				A932516D229A0EE200D93B5D /* MainView.swift in Sources */,
+				A98E49572365254C00394359 /* WOD.swift in Sources */,
 				A932516B229A0EE200D93B5D /* AppDelegate.swift in Sources */,
 				A9325186229A4C1400D93B5D /* Core.swift in Sources */,
 				A9325182229A4B0400D93B5D /* Heros.swift in Sources */,

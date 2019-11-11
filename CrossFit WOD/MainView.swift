@@ -13,7 +13,6 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tblView: UITableView!
     var dataDictionary = Model().getDataDictionary()
     var navController: UINavigationController!
-//    let filterVC = UINavigationController(rootViewController: FilterViewController())
     
     
     override func viewDidLoad() {
@@ -21,24 +20,20 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Do any additional setup after loading the view.
         self.tblView.delegate = self
         self.tblView.dataSource = self
-
         
         self.navigationItem.title = "WODs"
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.backgroundColor = .groupTableViewBackground
         
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(presentFilterVC))
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(presentFilterCollection))
         
-        // placed this method logic to here to save the state of the VC to the reference right away
+        // placed this method logic here to save the state of the VC to the reference right away
         guard let collectionVC = self.storyboard?.instantiateViewController(withIdentifier: "filterCollection") as? FilterCollection else {
             fatalError("Could not cast storyboard VC to FilterCollection type")
         }
         
         navController = UINavigationController(rootViewController: collectionVC)
-        
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,30 +94,32 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // instaniate View controller
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "WODDetailViewController") as! WODDetailViewController
-        var name = ""
         
         if dataDictionary.count == 2 {
             if indexPath.section == 0 {
                 // name cant have any spaces so must filter out spaces in names first
-                name = dataDictionary[0]?[indexPath.row].filter{ wod -> Bool in wod != " "} ?? ""
-                vc.WOD = Girls.descriptions[name]
+//                name = dataDictionary[0]?[indexPath.row].filter{ wod -> Bool in wod != " "} ?? ""
+                print(Girls.descriptions[indexPath.row])
+                
+                vc.navigationController?.title = Girls.descriptions[indexPath.row].name
+                vc.wodGroup = Girls.descriptions[indexPath.row]
             }else {
-                name = dataDictionary[1]?[indexPath.row].filter{$0 != " "} ?? ""
-                vc.WOD = Heros.descriptions[name]
+//                name = dataDictionary[1]?[indexPath.row].filter{$0 != " "} ?? ""
+//                vc.WOD = Heros.descriptions[name]
             }
         } else {
-            name = dataDictionary[0]?[indexPath.row].filter{$0 != " "} ?? ""
-            if let wod = Girls.descriptions[name] {
-                vc.WOD = wod
-            } else {
-                vc.WOD = Heros.descriptions[name]
-            }
+//            name = dataDictionary[0]?[indexPath.row].filter{$0 != " "} ?? ""
+//            if let wod = Girls.descriptions[name] {
+//                vc.WOD = wod
+//            } else {
+//                vc.WOD = Heros.descriptions[name]
+//            }
         }
       
         
         
         // set the header to wod name
-        vc.navigationItem.title = name
+//        vc.navigationItem.title = name
         
         // push the vc
         self.navigationController?.pushViewController(vc, animated: true)

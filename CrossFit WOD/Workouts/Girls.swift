@@ -36,45 +36,14 @@ struct Girls {
     // MARK: Girl WOD Description
     static let descriptions = [
     
-    "Cindy" : """
-        Complete as many rounds in 20 minutes as you can of:
-        5 Pull-ups
-        10 Push-ups
-        15 Squats
-        """,
-    "Diane" : """
-        21-15-9 reps of:
-        Deadlifts, 225 lb. / 155 lb.
-        Handstand push-ups
-        Then,
-        21-15-9 reps of:
-        Deadlifts, 315 lb. / 205 lb.
-        50-ft. handstand walk after each set
-
-        Time cap: 9 minutes
-        """,
-    "Grace" : """
-        135 pound Clean and Jerk, 30 reps
-        """,
-    "Isabel" : """
-        For time:
-        Snatch 135 pounds, 30 reps
-
-        Use 95 pounds, 65 pounds or broomstick as needed.
-        """,
-    "Mary" : """
-        Complete as many rounds in 20 minutes as you can of:
-        5 Handstand Push-ups
-        10 One legged squats, alternating
-        15 Pull-ups
-        """,
-    
-    "NastyGirls" : """
-        3 rounds for time of:
-        50 Squats
-        7 Muscle-ups
-        135 pound Hang power cleans, 10 reps
-        """
+         WOD(name: "Cindy", type: .AMRAP, time: 20, ["5 Pull-ups", "10 Push-ups", "15 Squats"]),
+         WOD(name: "Diane", type: .RND(number: 1), time: 9, [
+            "21-15-9 Deadlifts (225 lb. / 155 lb.)", "Handstand push-ups",
+         "21-15-9 Deadlifts (315 lb. / 205 lb.", "50-ft. handstand walk after each set"]),
+         WOD(name: "Grace", type: .RND(number: 1), time: 15, ["30 Clean and Jerk 135 lb."]),
+         WOD(name: "Isabel", type: .RND(number: 1), time: 15, ["30 Snatch 95 lb./ 65 lb."]),
+         WOD(name: "Mary", type: .AMRAP, time: 20, ["5 Handstand Push-ups", "10 One legged squats (alternating)", "15 Pull-ups"]),
+         WOD(name: "NastyGirls", type: .RND(number: 3), time: 25, ["50 Squats", "7 Muscle-ups", "10 Hang power cleans 135 lb."])
     ]
 
 }
