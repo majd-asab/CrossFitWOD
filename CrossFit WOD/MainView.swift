@@ -41,7 +41,6 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         dataDictionary = Model().getDataDictionary()
         self.tblView.reloadData()
     }
-    
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataDictionary.count
@@ -97,31 +96,33 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         if dataDictionary.count == 2 {
             if indexPath.section == 0 {
-                // name cant have any spaces so must filter out spaces in names first
-//                name = dataDictionary[0]?[indexPath.row].filter{ wod -> Bool in wod != " "} ?? ""
-                print(Girls.descriptions[indexPath.row])
-                
-                vc.navigationController?.title = Girls.descriptions[indexPath.row].name
+                vc.navigationItem.title = Girls.descriptions[indexPath.row].name
                 vc.wodGroup = Girls.descriptions[indexPath.row]
             }else {
-//                name = dataDictionary[1]?[indexPath.row].filter{$0 != " "} ?? ""
-//                vc.WOD = Heros.descriptions[name]
+                vc.navigationItem.title = Heros.descriptions[indexPath.row].name
+                vc.wodGroup = Heros.descriptions[indexPath.row]
             }
         } else {
-//            name = dataDictionary[0]?[indexPath.row].filter{$0 != " "} ?? ""
-//            if let wod = Girls.descriptions[name] {
-//                vc.WOD = wod
-//            } else {
-//                vc.WOD = Heros.descriptions[name]
-//            }
+            //1. get aggregated data from 0th index
+            //2. get the row user pressed cell
+            //3. check if the wod name is a girl or hero wod
+            //4. match the wod name
+            if let name = dataDictionary[0]?[indexPath.row] {
+                var wod: WOD? = nil
+                if Girls.girlsContents[name] != nil {
+                    wod = Girls.descriptions.filter({ (wod) -> Bool in
+                        wod.name == name
+                        })[0]
+                } else {
+                    wod = Heros.descriptions.filter({ (wod) -> Bool in
+                        wod.name == name
+                        })[0]
+                }
+                
+                vc.navigationItem.title = wod?.name
+                vc.wodGroup = wod
+            }
         }
-      
-        
-        
-        // set the header to wod name
-//        vc.navigationItem.title = name
-        
-        // push the vc
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
