@@ -24,9 +24,7 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.navigationItem.title = "WODs"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.backgroundColor = .groupTableViewBackground
-        
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(presentFilterCollection))
+
         
         // placed this method logic here to save the state of the VC to the reference right away
         guard let collectionVC = self.storyboard?.instantiateViewController(withIdentifier: "filterCollection") as? FilterCollection else {
@@ -34,6 +32,8 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
         
         navController = UINavigationController(rootViewController: collectionVC)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(presentFilterCollection))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -125,11 +125,6 @@ class MainView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-//    @objc func presentFilterVC() {
-//        self.present(self.filterVC, animated: true)
-// 
-//    }
     
     @objc func presentFilterCollection() {
         navController.modalPresentationStyle = .fullScreen

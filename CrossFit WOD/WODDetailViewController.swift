@@ -33,6 +33,11 @@ class WODDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // check if dark mode is on, and turn it
+        if traitCollection.userInterfaceStyle == .dark {
+            self.view.backgroundColor = .black
+        }
+        
         self.time.alpha = 0
         self.type.alpha = 0
         self.wod.alpha = 0
@@ -49,11 +54,11 @@ class WODDetailViewController: UIViewController {
         self.wod.text =  wodGroup?.workout.joined(separator: "\n")
         
         self.timeTitle.text = "Time"
-        self.timeTitle.font =  UIFont.boldSystemFont(ofSize: 20.0)
+        self.timeTitle.font =  UIFont.boldSystemFont(ofSize: 23.0)
         self.typeTitle.text = "Type"
-        self.typeTitle.font =  UIFont.boldSystemFont(ofSize: 20.0)
+        self.typeTitle.font =  UIFont.boldSystemFont(ofSize: 23.0)
         self.wodTitle.text = "WOD"
-        self.wodTitle.font =  UIFont.boldSystemFont(ofSize: 20.0)
+        self.wodTitle.font =  UIFont.boldSystemFont(ofSize: 23.0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,7 +74,7 @@ class WODDetailViewController: UIViewController {
             self?.type.alpha = 1
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.2, delay: 0.4, options: [], animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.5, options: [], animations: {
             [weak self] in
             self?.wod.alpha = 1
         }, completion: nil)

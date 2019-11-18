@@ -9,25 +9,7 @@
 import UIKit
 
 class FilterButton: UIButton {
-
-//   old implementation
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
-//
-//    init(title: String) {
-//        super.init(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
-//        self.setTitle(title, for: .normal)
-//        setup()
-//    }
     
-    
-    // new implementation
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,12 +23,16 @@ class FilterButton: UIButton {
     
     // required for all designs
     func setup() {
-        self.backgroundColor = UIColor.white
-        self.layer.borderColor = UIColor.black.cgColor
+        if traitCollection.userInterfaceStyle == .dark {
+            self.layer.backgroundColor = UIColor.black.cgColor
+        } else {
+            self.layer.borderColor = UIColor.white.cgColor
+        }
+
+        self.backgroundColor = .darkGray
+        self.setTitleColor(.white, for: .normal)
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 5
-        self.setTitleColor(.black, for: .normal)
-        
     }
 }
 

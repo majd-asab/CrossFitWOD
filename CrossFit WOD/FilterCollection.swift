@@ -19,7 +19,6 @@ class FilterCollection: UICollectionViewController, UICollectionViewDelegateFlow
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dimissModal))
     }
     
@@ -101,19 +100,19 @@ class FilterCollection: UICollectionViewController, UICollectionViewDelegateFlow
     // TODO: only execute setDataDictionary when the user clicks done on the filter page
     @IBAction func onButtonTouchup(_ sender: FilterButton) {
         if let buttonTitle = sender.currentTitle {
-            let borderColor = sender.layer.borderColor
+            let backgroundColor = sender.backgroundColor
             
-            switch (buttonTitle, borderColor) {
-                case ("Girls", UIColor.black.cgColor):
+            switch (buttonTitle, backgroundColor) {
+                case ("Girls", UIColor.darkGray):
                     model.setDataDictionary(with: buttonTitle, arrayOfWods: nil)
-                case ("Heros", UIColor.black.cgColor):
+                case ("Heros", UIColor.darkGray):
                     model.setDataDictionary(with: buttonTitle, arrayOfWods: nil)
-                case (buttonTitle, UIColor.black.cgColor):
+                case (buttonTitle, UIColor.darkGray):
                     setOfMovementButtons.insert(buttonTitle)
                     let wods = findWodsWith(buttonTitle: buttonTitle)
                     setOfAggregatedWods = setOfAggregatedWods.union(Set(wods))
                     model.setDataDictionary(with: nil, arrayOfWods: Array(setOfAggregatedWods))
-                case (buttonTitle, UIColor.blue.cgColor):
+                case (buttonTitle, UIColor.lightGray):
                     setOfAggregatedWods.removeAll()
                     setOfMovementButtons.remove(buttonTitle)
                     for moveTitle in Array(setOfMovementButtons) {
@@ -132,7 +131,8 @@ class FilterCollection: UICollectionViewController, UICollectionViewDelegateFlow
     
     // Func to modify button appearance when clicked on.
     func filterButtonAppearance(sender: FilterButton){
-        sender.layer.borderColor = sender.layer.borderColor == UIColor.black.cgColor ? UIColor.blue.cgColor : UIColor.black.cgColor
+//        sender.layer.borderColor = sender.layer.borderColor == UIColor.black.cgColor ? UIColor.blue.cgColor : UIColor.black.cgColor
+        sender.layer.backgroundColor = sender.layer.backgroundColor == UIColor.darkGray.cgColor ? UIColor.lightGray.cgColor : UIColor.darkGray.cgColor
     }
     
     
